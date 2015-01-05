@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +106,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Main.cshtml" />
@@ -117,6 +117,16 @@
     <Content Include="Views\PageInfo\Text.cshtml" />
     <Content Include="serialization\master\sitecore\layout\Renderings\Footer.item" />
     <Content Include="serialization\master\sitecore\layout\Renderings\Text.item" />
+    <Content Include="Views\Product\ProductDescription.cshtml" />
+    <Content Include="serialization\master\sitecore\layout\Models\Product.item" />
+    <Content Include="serialization\master\sitecore\layout\Renderings\ProductDescription.item" />
+    <Content Include="serialization\master\sitecore\content\Home\Fiat Punto.item" />
+    <Content Include="serialization\master\sitecore\content\Home\Lancia Delta.item" />
+    <Content Include="serialization\master\sitecore\templates\User Defined\Product.item" />
+    <Content Include="serialization\master\sitecore\templates\User Defined\Product\Info.item" />
+    <Content Include="serialization\master\sitecore\templates\User Defined\Product\Info\Description.item" />
+    <Content Include="serialization\master\sitecore\templates\User Defined\Product\Info\Image.item" />
+    <Content Include="serialization\master\sitecore\templates\User Defined\Product\Info\Title.item" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

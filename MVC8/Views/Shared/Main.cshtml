@@ -3,19 +3,21 @@
 @using Sitecore.Mvc.Presentation
 @model RenderingModel
 @{
-  Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
-  <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
-  @Html.Sitecore().VisitorIdentification()
+    <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
+    @Html.Sitecore().VisitorIdentification()
 </head>
-  <body>
+<body>
     <h1>@Html.Sitecore().Field("title")</h1>
-    <div>
-      @Html.Sitecore().Placeholder("main")
+    <div style="height:720px">
+        @Html.Sitecore().Placeholder("main")
     </div>
-      @Html.Sitecore().Rendering("/sitecore/layout/Renderings/Footer")  
-  </body>
+    <div style="clear:both">
+        @Html.Sitecore().Rendering("/sitecore/layout/Renderings/Footer")
+    </div>
+</body>
 </html>
