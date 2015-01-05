@@ -12,6 +12,9 @@
     @Html.Sitecore().VisitorIdentification()
 </head>
 <body>
+    <div style="float:left">
+        @Html.Sitecore().Rendering("/sitecore/layout/Renderings/NavigationMenu")
+    </div>
     <h1>@Html.Sitecore().Field("title")</h1>
     <div style="height:720px">
         @Html.Sitecore().Placeholder("main")

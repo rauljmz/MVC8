@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MVC8.Models.NavigationItem>
+<h1>Menu</h1>
+<ul>
+    @foreach (var item in Model)
+    {
+     <li>
+         <a href="@item.Url">@item.NavigationTitle</a>
+     </li>
+    }
+</ul>
