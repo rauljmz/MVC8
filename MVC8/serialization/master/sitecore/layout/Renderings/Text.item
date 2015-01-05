@@ -1,25 +1,25 @@
 ----item----
 version: 1
-id: {7C073C03-2D50-4EDC-8660-21A06BF2216C}
+id: {1EFFA4BA-AA11-4BBD-AD90-FFECA6DA71EB}
 database: master
-path: /sitecore/layout/Layouts/Main
-parent: {75CC5CE4-8979-4008-9D3C-806477D57619}
-name: Main
+path: /sitecore/layout/Renderings/Text
+parent: {32566F0E-7686-45F1-A12F-D7260BD78BC3}
+name: Text
 master: {00000000-0000-0000-0000-000000000000}
-template: {3A45A723-64EE-4919-9D41-02FD40FD1466}
-templatekey: Layout
+template: {99F8905D-4A87-4EB8-9F8B-A9BEBFB3ADD6}
+templatekey: View rendering
 
 ----field----
-field: {A036B2BC-BA04-44F6-A75F-BAE6CD242ABF}
+field: {51B435BC-F7B9-478A-9C51-52916AF96FF5}
 name: Path
 key: path
-content-length: 25
+content-length: 27
 
-/Views/Shared/Main.cshtml
+/Views/PageInfo/Text.cshtml
 ----version----
 language: en
 version: 1
-revision: 88f750c0-c74c-42ea-b486-658e1efe430e
+revision: 117dc616-48b5-4bdf-9ea1-32b83d4b86a3
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -27,28 +27,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20150105T125216Z
-----field----
-field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
-name: __Created by
-key: __created by
-content-length: 14
-
-sitecore\admin
+20150105T163651Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-88f750c0-c74c-42ea-b486-658e1efe430e
+117dc616-48b5-4bdf-9ea1-32b83d4b86a3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20150105T163130:635560722901991049Z
+20150105T163652:635560726122273765Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

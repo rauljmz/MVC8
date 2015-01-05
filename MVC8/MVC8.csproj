@@ -45,11 +45,11 @@
     </Reference>
     <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\..\..\..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Mvc.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Mvc.Analytics">
       <HintPath>..\..\..\..\..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Mvc.Analytics.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="serialization\master\sitecore\content\Home.item" />
+    <Content Include="serialization\master\sitecore\layout\Layouts\Main.item" />
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
   </ItemGroup>
@@ -109,10 +110,13 @@
   <ItemGroup>
     <Content Include="Views\Shared\Main.cshtml" />
     <None Include="App_Config\Include\Z\SitecoreSettings.config" />
-    <Content Include="serialization\master\sitecore\layout\Layouts\Main.item" />
-    <Content Include="MVC8.wpp.targets" />
-    <None Include="Web.config" />
+    <None Include="MVC8.wpp.targets" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\mvc8.pubxml" />
+    <Content Include="Views\PageInfo\Text.cshtml" />
+    <Content Include="serialization\master\sitecore\layout\Renderings\Footer.item" />
+    <Content Include="serialization\master\sitecore\layout\Renderings\Text.item" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -157,5 +161,4 @@
       <Content Include="Serialization\**\*.item" />
     </ItemGroup>
   </Target>
-
 </Project>
