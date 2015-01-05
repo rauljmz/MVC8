@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="serialization\master\sitecore\content\Home.item" />
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
   </ItemGroup>
@@ -106,6 +107,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Shared\Main.cshtml" />
+    <None Include="App_Config\Include\Z\SitecoreSettings.config" />
+    <Content Include="serialization\master\sitecore\layout\Layouts\Main.item" />
+    <Content Include="MVC8.wpp.targets" />
     <None Include="Web.config" />
     <None Include="Properties\PublishProfiles\mvc8.pubxml" />
     <None Include="Web.Debug.config">
@@ -147,4 +152,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <Content Include="Serialization\**\*.item" />
+    </ItemGroup>
+  </Target>
+
 </Project>
