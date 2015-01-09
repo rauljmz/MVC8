@@ -19,6 +19,7 @@ namespace MVC8.Models
         public HtmlString Description { get { return new HtmlString(FieldRenderer.Render(Item, "description")); } }
         public HtmlString Image { get { return new HtmlString(FieldRenderer.Render(Item, "image")); } }
 
+        public HtmlString Price { get { return new HtmlString(FieldRenderer.Render(Item, "price"));  } }
 
 
     }

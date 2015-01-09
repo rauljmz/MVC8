@@ -17,16 +17,23 @@ content-length: 38
 
 {1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
+field: {F7D48A55-2158-4F02-9356-756654404F73}
+name: __Standard values
+key: __standard values
+content-length: 38
+
+{E937D232-FFEB-48F5-82E6-B6F475F729B0}
+----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
 content-length: 27
 
-Office/16x16/car_sedan2.png
+Office/32x32/car_sedan2.png
 ----version----
 language: en
 version: 1
-revision: b15ddc2d-8d94-40c4-b5c1-c10e5f55028a
+revision: 94d96f31-07d9-4e92-b8bf-7d5aaad0c882
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -48,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b15ddc2d-8d94-40c4-b5c1-c10e5f55028a
+94d96f31-07d9-4e92-b8bf-7d5aaad0c882
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20150105T134646:635560624066249929Z
+20150108T180510:635563371102183665Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

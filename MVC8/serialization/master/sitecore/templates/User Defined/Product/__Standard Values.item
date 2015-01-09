@@ -13,17 +13,15 @@ templatekey: Product
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 221
+content-length: 105
 
 <r>
-  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{7C073C03-2D50-4EDC-8660-21A06BF2216C}">
-    <r id="{E46B9F5E-BAC6-4679-8A85-47781E23312D}" ph="main" uid="{58A864BE-4C68-4F41-A478-4034C1809103}" />
-  </d>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{7C073C03-2D50-4EDC-8660-21A06BF2216C}" />
 </r>
 ----version----
 language: en
 version: 1
-revision: 7a797e59-5fe2-420a-818f-234bc086a863
+revision: bda053ac-726c-4f57-b00f-0d4b53bb4775
 
 ----field----
 field: {5A91CA85-011D-4B95-BA1D-3334ADA0D5E6}
@@ -59,14 +57,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7a797e59-5fe2-420a-818f-234bc086a863
+bda053ac-726c-4f57-b00f-0d4b53bb4775
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20150105T170206:635560741269809932Z
+20150108T175936:635563367766833747Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
