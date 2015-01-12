@@ -1,0 +1,27 @@
+﻿@model MVC8.Models.LoginUser
+
+<div id="ajaxlogin">
+    <h4>Login with AJAX</h4>
+    <div>
+        @using (Ajax.BeginForm("Index", (string)null, new AjaxOptions() { UpdateTargetId = "ajaxlogin", HttpMethod = "post" }))
+        {
+            <input type="hidden" name="_controller" value="LoginAjax" />
+            <input type="hidden" name="_action" value="Index" />
+            <div style="color:red">
+                @Html.ValidationSummary()
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </div>
+
+            <input type="submit" value="Login" />
+        }
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model MVC8.Models.LoginUser
+@{
+
+}
+<div>
+    <h4>Login with a View Rendering</h4>
+    <div>
+        @using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+        {
+            @Html.Sitecore().FormHandler()
+    <div style="color:red">
+        @Html.ValidationSummary()
+    </div>
+            <div>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            
+            <input type="submit" value="Login"/>
+        }
+
+    </div>
+</div>

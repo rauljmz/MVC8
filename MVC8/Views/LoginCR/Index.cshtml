@@ -1,0 +1,28 @@
+﻿@model MVC8.Models.LoginUser
+
+<div>
+    <h4>Login with a Controller Rendering</h4>
+    <div>
+        @using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+        {
+          
+            <input type="hidden" name="_controller" value="LoginCR"/>
+            <input type="hidden" name="_action" value="Index"/>
+            <div style="color:red">
+                @Html.ValidationSummary()
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </div>
+
+            <input type="submit" value="Login" />
+        }
+
+    </div>
+</div>
