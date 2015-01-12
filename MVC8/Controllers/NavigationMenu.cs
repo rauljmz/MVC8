@@ -1,4 +1,5 @@
-﻿using MVC8.Models;
+﻿using MVC8.Business;
+using MVC8.Models;
 using Sitecore.Links;
 using Sitecore.Mvc.Presentation;
 using System;
@@ -11,23 +12,22 @@ namespace MVC8.Controllers
 {
     public class NavigationMenuController : Controller
     {
+        protected INavigationBuilder _navigationBuilder;
+
+        public NavigationMenuController() : this(new NavigationBuilder())
+        {
+
+        }
+
+        public NavigationMenuController(INavigationBuilder builder)
+        {
+            _navigationBuilder = builder;
+        }
         // GET: Default
         public ActionResult Index()
         {
-            var homeItem = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
+            var navigationItems = _navigationBuilder.NavigationForItem(RenderingContext.Current.Rendering.Item.ID.ToString());
 
-            var navigationItems = new List<NavigationItem>();
-
-            navigationItems.Add(new NavigationItem() { NavigationTitle = "Home", Url = "/" });
-
-           navigationItems.AddRange(homeItem.Children
-                .Where(i=> i.Template.Key == "product")
-                .Select(i=> new NavigationItem(){
-                    NavigationTitle = i.Name,
-                    Url = LinkManager.GetItemUrl(i)
-                }));
-     
-            
             return View(navigationItems);
         }
     }
