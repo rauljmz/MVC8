@@ -15,7 +15,7 @@ namespace MVC8.Business
         {
             var navigationItems = new List<NavigationItem>();
             var home = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
-
+            
             navigationItems.Add(CreateNavigationItemFromItem(home,"HOME"));
 
             navigationItems.AddRange(home.GetChildren().Select(i=> CreateNavigationItemFromItem(i)));

@@ -112,7 +112,9 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\EnableAutofac.cs" />
+    <Compile Include="Utils\IRenderingContext.cs" />
     <Compile Include="Utils\LoadRoutes.cs" />
+    <Compile Include="Utils\SitecoreRenderingContext.cs" />
     <Compile Include="Utils\VaildateFormHandler.cs" />
   </ItemGroup>
   <ItemGroup>
