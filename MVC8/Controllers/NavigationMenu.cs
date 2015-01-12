@@ -14,7 +14,7 @@ namespace MVC8.Controllers
     {
         protected INavigationBuilder _navigationBuilder;
 
-        public NavigationMenuController() : this(new NavigationBuilder())
+        public NavigationMenuController() 
         {
 
         }
