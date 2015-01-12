@@ -1,6 +1,4 @@
 ﻿using MVC8.Models;
-using Sitecore.Data.Items;
-using Sitecore.Links;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +8,35 @@ namespace MVC8.Business
 {
     public class NavigationBuilder : INavigationBuilder
     {
+        public IItemRepository _itemRepository { get; set; }
+
+        public NavigationBuilder(IItemRepository itemRepostory)
+        {
+            _itemRepository = itemRepostory;
+        }
+
 
         public virtual IEnumerable<NavigationItem> NavigationForItem(string pathOrId)
         {
             var navigationItems = new List<NavigationItem>();
-            var home = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
-            
-            navigationItems.Add(CreateNavigationItemFromItem(home,"HOME"));
+            var home = _itemRepository.GetItem(pathOrId);
 
-            navigationItems.AddRange(home.GetChildren().Select(i=> CreateNavigationItemFromItem(i)));
-            
+            if (home != null)
+            {
+                navigationItems.Add(CreateNavigationItemFromItem(home, "HOME"));
+
+                navigationItems.AddRange(_itemRepository.GetChildren(home).Select(i => CreateNavigationItemFromItem(i)));
+            }
+
             return navigationItems;
         }
 
-        private NavigationItem CreateNavigationItemFromItem(Item item, string navigationtitle = "")
+        private NavigationItem CreateNavigationItemFromItem(IItem item, string navigationtitle = "")
         {
             return new NavigationItem()
             {
-                Url = LinkManager.GetItemUrl(item),
-                NavigationTitle = Sitecore.StringUtil.GetString(navigationtitle, item["title"],item.Name)
+                Url = item.Url,
+                NavigationTitle = new [] {navigationtitle, item["title"], item.Name}.FirstOrDefault(st=> !string.IsNullOrWhiteSpace(st))
             };
         }
 

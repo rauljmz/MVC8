@@ -100,8 +100,12 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\FilteredNavigationBuilder.cs" />
+    <Compile Include="Business\IItem.cs" />
+    <Compile Include="Business\IItemRepository.cs" />
     <Compile Include="Business\INavigationBuilder.cs" />
     <Compile Include="Business\NavigationBuilder.cs" />
+    <Compile Include="Business\SitecoreItem.cs" />
+    <Compile Include="Business\SitecoreItemRepository.cs" />
     <Compile Include="Controllers\LoginAjaxController.cs" />
     <Compile Include="Controllers\LoginCRController.cs" />
     <Compile Include="Controllers\LoginVRController.cs" />

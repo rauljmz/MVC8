@@ -7,6 +7,10 @@ namespace MVC8.Business
 {
     public class FilteredNavigationBuilder : NavigationBuilder
     {
+        public FilteredNavigationBuilder(IItemRepository itemrepository):base(itemrepository)
+        {
+
+        }
         public override IEnumerable<Models.NavigationItem> NavigationForItem(string pathOrId)
         {
             return base.NavigationForItem(pathOrId).Where(n => n.NavigationTitle != "$name");
