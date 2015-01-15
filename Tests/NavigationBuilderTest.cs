@@ -14,6 +14,9 @@ namespace Tests
 
         private readonly TestItem _homeItem;
 
+         private const string HomeItemId = "{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}";
+
+
         public NavigationBuilderTest()
         {
             _itemRepository = new Mock<IItemRepository>();
@@ -25,7 +28,7 @@ namespace Tests
             var child1 = new TestItem { Name = "child1", TemplateName = "Sample Item", Url = "/child1" };
             var child2 = new TestItem { Name = "child2", TemplateName = "Sample Item", Url = "/child2" };
 
-            _itemRepository.Setup(r => r.GetItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}"))
+            _itemRepository.Setup(r => r.GetItem(HomeItemId))
                            .Returns(_homeItem);
 
             _itemRepository.Setup(r => r.GetChildren(_homeItem))
@@ -38,20 +41,21 @@ namespace Tests
             _itemRepository.Setup(r => r.GetItem(It.IsAny<string>()))
                            .Returns<IItem>(null);
 
-            _navigationBuilder.NavigationForItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}")
+            _navigationBuilder.NavigationForItem(HomeItemId)
                              .Count()
                              .ShouldEqual(0);
         }
 
         [Theory]
-        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/")]
-        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/child1")]
-        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/child2")]
-        public void VerifyReturnedItems(string itemId, string returnedItemUrl)
+        [InlineData(HomeItemId, "/", true)]
+        [InlineData(HomeItemId, "/child1", true)]
+        [InlineData(HomeItemId, "/child2", true)]
+        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70111}", "/", false)]
+        public void VerifyReturnedItems(string itemId, string returnedItemUrl, bool isPresent)
         {
             _navigationBuilder.NavigationForItem(itemId)
                               .Any(x => x.Url == returnedItemUrl)
-                              .ShouldBeTrue();
+                              .ShouldEqual(isPresent);
         }
     }
 }
