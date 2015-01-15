@@ -12,7 +12,7 @@ namespace Tests
         private readonly Mock<IItemRepository> _itemRepository;
         private readonly NavigationBuilder _navigationBuilder;
 
-        private static TestItem _homeItem;
+        private readonly TestItem _homeItem;
 
         public NavigationBuilderTest()
         {
