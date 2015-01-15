@@ -1,65 +1,57 @@
 ﻿using Moq;
 using MVC8.Business;
-using MVC8.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Should;
 using Xunit;
+using Xunit.Extensions;
 
 namespace Tests
 {
     public class NavigationBuilderTest
     {
+        private readonly Mock<IItemRepository> _itemRepository;
+        private readonly NavigationBuilder _navigationBuilder;
+
+        private static TestItem _homeItem;
+
+        public NavigationBuilderTest()
+        {
+            _itemRepository = new Mock<IItemRepository>();
+
+            _navigationBuilder = new NavigationBuilder(_itemRepository.Object);
+
+            _homeItem = new TestItem { Name = "Home", TemplateName = "Sample Item", Url = "/" };
+
+            var child1 = new TestItem { Name = "child1", TemplateName = "Sample Item", Url = "/child1" };
+            var child2 = new TestItem { Name = "child2", TemplateName = "Sample Item", Url = "/child2" };
+
+            _itemRepository.Setup(r => r.GetItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}"))
+                           .Returns(_homeItem);
+
+            _itemRepository.Setup(r => r.GetChildren(_homeItem))
+                           .Returns(new[] { child1, child2 });
+        }
+
         [Fact]
         public void ItemDoesNotExistReturnsEmptyList()
         {
-            var itemRepository = new Mock<IItemRepository>();
-            itemRepository.Setup(r => r.GetItem(It.IsAny<string>())).Returns((IItem)null);
+            _itemRepository.Setup(r => r.GetItem(It.IsAny<string>()))
+                           .Returns<IItem>(null);
 
-            var navigationBuilder = new NavigationBuilder(itemRepository.Object);
-
-            var result = navigationBuilder.NavigationForItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}");
-
-            Assert.Empty(result);
+            _navigationBuilder.NavigationForItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}")
+                             .Count()
+                             .ShouldEqual(0);
         }
 
-        [Fact]
-        public void ReturnsAllFirstLevelChildren()
+        [Theory]
+        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/")]
+        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/child1")]
+        [InlineData("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}", "/child2")]
+        public void VerifyReturnedItems(string itemId, string returnedItemUrl)
         {
-            var homeItem = new TestItem() { Name = "Home", TemplateName = "Sample Item", Url = "/" };
-            var child1 = new TestItem() { Name = "child1", TemplateName = "Sample Item", Url = "/child1" };
-            var child2 = new TestItem() { Name = "child2", TemplateName = "Sample Item", Url = "/child2" };
-
-            var itemRepository = new Mock<IItemRepository>();
-            itemRepository.Setup(r => r.GetItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}")).Returns(homeItem);
-            itemRepository.Setup(r => r.GetChildren(homeItem)).Returns(new[] {child1,child2 });
-
-            var navigationBuilder = new NavigationBuilder(itemRepository.Object);
-
-            var result = navigationBuilder.NavigationForItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}");
-
-            Assert.Single(result, n => n.Url == child1.Url);
-            Assert.Single(result, n => n.Url == child2.Url);
-        }
-
-        [Fact]
-        public void ReturnsHomeItem()
-        {
-            var homeItem = new TestItem() { Name = "Home", TemplateName = "Sample Item", Url = "/" };
-            var child1 = new TestItem() { Name = "child1", TemplateName = "Sample Item", Url = "/child1" };
-            var child2 = new TestItem() { Name = "child2", TemplateName = "Sample Item", Url = "/child2" };
-
-            var itemRepository = new Mock<IItemRepository>();
-            itemRepository.Setup(r => r.GetItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}")).Returns(homeItem);
-            itemRepository.Setup(r => r.GetChildren(homeItem)).Returns(new[] { child1, child2 });
-
-            var navigationBuilder = new NavigationBuilder(itemRepository.Object);
-
-            var result = navigationBuilder.NavigationForItem("{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}");
-
-            Assert.Single(result, n => n.Url == homeItem.Url);
+            _navigationBuilder.NavigationForItem(itemId)
+                              .Any(x => x.Url == returnedItemUrl)
+                              .ShouldBeTrue();
         }
     }
 }
