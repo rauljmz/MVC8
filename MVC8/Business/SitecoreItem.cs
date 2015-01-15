@@ -17,7 +17,7 @@ namespace MVC8.Business
 
         public SitecoreItem(Item item)
         {
-
+            _item = item;
         }
         public string Name
         {

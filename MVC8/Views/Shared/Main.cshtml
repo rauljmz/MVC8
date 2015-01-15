@@ -16,7 +16,7 @@
 <body>
     <div >
         <div style="float:left;height:768px">
-            @Html.Sitecore().Rendering("/sitecore/layout/Renderings/NavigationMenu")
+            @Html.Sitecore().Rendering("/sitecore/layout/Renderings/NavigationMenu", new { DataSource="/sitecore/content/home" })
         </div>
         <h1>@Html.Sitecore().Field("title")</h1>
         <div style="height:768px">

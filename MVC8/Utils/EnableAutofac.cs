@@ -17,6 +17,7 @@
 
             builder.RegisterType<FilteredNavigationBuilder>().As<INavigationBuilder>();
             builder.RegisterType<SitecoreItemRepository>().As<IItemRepository>();
+            builder.RegisterType<SitecoreRenderingContext>().As<IRenderingContext>();
 
             builder.RegisterControllers(this.GetType().Assembly);
 

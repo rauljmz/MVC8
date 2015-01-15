@@ -18,6 +18,7 @@ namespace MVC8.Controllers
             {
                 if (Sitecore.Security.Authentication.AuthenticationManager.Login(loginUser.Username,loginUser.Password))
                 {
+                    Sitecore.Analytics.Tracker.Current.CurrentPage.Register("login", "user has login");
                     return RedirectToRoute(MvcSettings.SitecoreRouteName, new { pathInfo = ""});
 
                 }

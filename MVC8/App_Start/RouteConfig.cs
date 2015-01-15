@@ -14,6 +14,9 @@ namespace MVC8
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("product", "product/{*pathInfo}", new { scItemPath="/{pathInfo}", controller="product" });
+
+            routes.MapRoute("sesssion", "sitecore/admin/session/{action}", new { controller="session"});
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",

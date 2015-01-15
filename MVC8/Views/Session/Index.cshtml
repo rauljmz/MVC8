@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>
+            Session stuff
+        </h1>
+        <div>@Session.SessionID</div>
+        <h2>Session options</h2>
+
+        @Html.ActionLink("Abandon", "Abandon")
+      </div>
+</body>
+</html>

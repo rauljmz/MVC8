@@ -45,6 +45,18 @@
       <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sitecore.Analytics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Analytics.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Analytics.Model.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\..\..\..\..\..\SitecoreVault\Binaries\v.8.0rev141212\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
@@ -111,6 +123,7 @@
     <Compile Include="Controllers\LoginVRController.cs" />
     <Compile Include="Controllers\NavigationMenu.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\NavigationItem.cs" />
     <Compile Include="Models\Product.cs" />
@@ -165,6 +178,7 @@
     <Content Include="Views\LoginAjax\Index.cshtml" />
     <Content Include="Views\LoginAjax\Success.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Session\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

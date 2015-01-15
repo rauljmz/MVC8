@@ -16,8 +16,6 @@ namespace Tests
     
     public class NavigationControllerTests
     {
-        
-     
         [Fact]
         public void ShouldPassDatasourceGuidToBuilder()
         {
